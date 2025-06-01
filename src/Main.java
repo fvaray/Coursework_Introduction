@@ -3,13 +3,19 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Курсовая работа «Введение в профессию и синтаксис языка» Автор - Фролов В.А.");
-        System.out.println();
-        Employee employeeOne = new Employee("Иванов Иван Иванович", 50000, 1);
-        Employee employeeSenond = new Employee("Петров Петр Петрович", 60000, 2);
-        Employee employeeThird = new Employee("Лукьин Лука Лукьич", 70000, 3);
+        Employee[] employees = new Employee[10];
+        employees[0] = new Employee("Иванов Иван Иванович", 50, 1);
+        employees[1] = new Employee("Петров Петр Петрович", 60, 2);
+        employees[2] = new Employee("Лукьин Лука Лукьич", 30, 3);
+        employees[3] = new Employee("Севастьянова Анна Макрковна", 80, 4);
+
         System.out.println("Количество сотрудников = " + Employee.id);
-
-        Employee [] employees =new Employee[10];
-
+        System.out.println("Cписок всех сотрудников со всеми имеющимися по ним данными:");
+        Employee.getListEmployees(employees);
+        System.out.println("Сумма трат за месяц составила " + Employee.spendingAmountPerMonth(employees) + " рублей");
+        Employee.searchEmploeeMinSalary(employees);
+        Employee.searchEmploeeMaxSalary(employees);
+        System.out.println("Среднее значение зарплат " + (int)Employee.spendingAmountPerMonth(employees)/Employee.id + " рублей");
+        Employee.printAllNamaEmploees(employees);
     }
 }
