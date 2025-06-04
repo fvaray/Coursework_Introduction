@@ -4,10 +4,11 @@ public class Employee {
     private String fullName;
     private int salary;
     private int departament;
-    static int id = 0;
+    private int id = 0;
+    private static int counter = 1;
 
     public Employee(String fullName, int salary, int departament) {
-        id++;
+        id = counter++;
         this.fullName = fullName;
         this.salary = salary;
         this.departament = departament;
@@ -37,6 +38,9 @@ public class Employee {
         this.departament = departament;
     }
 
+    public int getId(){
+        return this.id;
+    }
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -51,8 +55,8 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "fullName='" + fullName + '\'' +
+        return "id=" + id +
+                ", fullName=" + fullName +
                 ", salary=" + salary +
                 ", departament=" + departament +
                 '}';
@@ -65,54 +69,8 @@ public class Employee {
         employee.departament = departament;
     }
 
-    static void getListEmployees(Object[] objects) {
-        Employee[] employee = (Employee[]) objects;
-        for (int i = 0; i < Employee.id; i++) {
-            System.out.println(employee[i].toString());
-        }
-    }
-
-    static int spendingAmountPerMonth(Object[] objects) {
-        Employee[] employee = (Employee[]) objects;
-        int sum = 0;
-        for (int i = 0; i < Employee.id; i++) {
-            sum += employee[i].getSalary();
-        }
-
-        return sum;
-    }
-
-    static void searchEmploeeMinSalary(Object[] objects) {
-        Employee[] employee = (Employee[]) objects;
-        int min = employee[0].getSalary();
-        int j = 0;
-        for (int i = 0; i < Employee.id; i++) {
-            if (employee[i].getSalary() < min) {
-                min = employee[i].getSalary();
-                j = i;
-            }
-        }
-        System.out.println("Cотрудник с минимальной ЗП - " + employee[j].toString());
-    }
-
-    static void searchEmploeeMaxSalary(Object[] objects) {
-        Employee[] employee = (Employee[]) objects;
-        int max = employee[0].getSalary();
-        int j = 0;
-        for (int i = 0; i < Employee.id; i++) {
-            if (employee[i].getSalary() > max)
-            {
-                max = employee[i].getSalary();
-                j = i;
-            }
-        }
-        System.out.println("Cотрудник с максималной ЗП - " + employee[j].toString());
-    }
-
-    static void printAllNamaEmploees(Object[] objects) {
-        Employee[] employee = (Employee[]) objects;
-        for (int i = 0; i < Employee.id; i++) {
-            System.out.println(employee[i].getFullName());
-        }
+    static int getCounter()
+    {
+        return counter;
     }
 }
