@@ -16,7 +16,7 @@ public class Main {
         searchEmploeeMinSalary();
         searchEmploeeMaxSalary();
         System.out.println("Среднее значение зарплат " + (int)spendingAmountPerMonth()/employees.length + " рублей");
-        printAllNamaEmploees();
+        printFullNamesEmploees();
     }
 
     static void getListEmployees() {
@@ -60,7 +60,7 @@ public class Main {
         System.out.println("Cотрудник с максималной ЗП - " + employees[j].toString());
     }
 
-    static void printAllNamaEmploees() {
+    static void printFullNamesEmploees() {
         for (Employee employee: employees) {
             System.out.println(employee.getFullName());
         }
