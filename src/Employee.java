@@ -58,8 +58,13 @@ public class Employee {
         return "id=" + id +
                 ", fullName=" + fullName +
                 ", salary=" + salary +
-                ", departament=" + departament +
-                '}';
+                ", departament=" + departament;
+    }
+
+    public String toStringWithoutDep() {
+        return "id=" + id +
+                ", fullName=" + fullName +
+                ", salary=" + salary;
     }
 
     static void resetEmployee(Object o, String fullName, int salary, int departament) {
